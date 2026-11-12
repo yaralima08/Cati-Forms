@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cati Forms — Entrar</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Cati Forms</h1>
+  </header>
+  <div class="container" style="max-width:440px; margin-top:3rem;">
+    <p class="eyebrow">Banco de Talentos 2026</p>
+    <div class="card auth-card">
+      <h2 id="title">Entrar</h2>
+
+      <div id="alertBox" class="alert"></div>
+
+      <!--FORM LOGIN-->
+      <form id="loginForm">
+        <div class="field" data-field="identifier">
+          <label for="loginIdentifier">
+            Username ou E-mail
+          </label>
+          <input type="text" id="loginIdentifier" autocomplete="username" autofocus />
+          <div class="field-error">Informe seu username ou e-mail</div>
+        </div>
+
+        <div class="field" data-field="password">
+          <label for="loginPassword">Senha</label>
+          <div class="password-wrap">
+            <input type="password" id="loginPassword" autocomplete="current-password" />
+            <button type="button" class="toggle-eye" data-target="loginPassword">👁</button>
+          </div>
+          <div class="field-error">Informe sua senha</div>
+        </div>
+
+        <button type="submit" id="loginBtn">Entrar</button>
+      </form>
+
+      <!--FORM CADASTRO-->
+      <form id="registerForm" style="display:none;">
+        <div class="field" data-field="name">
+          <label for="regName">Nome completo</label>
+          <input type="text" id="regName" autocomplete="name" />
+          <div class="field-error">Informe seu nome (mín. 2 caracteres)</div>
+        </div>
+
+        <div class="field" data-field="email">
+          <label for="regEmail">E-mail</label>
+          <input type="email" id="regEmail" autocomplete="email" />
+          <div class="field-error">Informe um e-mail válido</div>
+        </div>
+
+        <div class="field" data-field="username">
+          <label for="regUsername">
+            Username
+            <span class="field-hint">3-30 caracteres (letras, números, _ ou .)</span>
+          </label>
+          <input type="text" id="regUsername" autocomplete="username" />
+          <div class="field-error">Username inválido</div>
+        </div>
+
+        <div class="field" data-field="password">
+          <label for="regPassword">Senha</label>
+          <div class="password-wrap">
+            <input type="password" id="regPassword" autocomplete="new-password" />
+            <button type="button" class="toggle-eye" data-target="regPassword">👁</button>
+          </div>
+          <div class="strength-bar"><div id="strengthBar"></div></div>
+          <div class="strength-text" id="strengthText"></div>
+          <div class="field-error">Senha deve ter pelo menos 6 caracteres</div>
+        </div>
+
+        <div class="field" data-field="confirmPassword">
+          <label for="regConfirm">Confirmar senha</label>
+          <div class="password-wrap">
+            <input type="password" id="regConfirm" autocomplete="new-password" />
+            <button type="button" class="toggle-eye" data-target="regConfirm">👁</button>
+          </div>
+          <div class="field-error">As senhas não coincidem</div>
+        </div>
+
+        <button type="submit" id="registerBtn">Criar conta</button>
+      </form>
+
+      <p class="auth-switch">
+        <span id="switchText">Não tem conta?</span>
+        <a href="#" id="switchMode">Cadastre-se</a>
+      </p>
+    </div>
+  </div>
+  <script src="/config.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

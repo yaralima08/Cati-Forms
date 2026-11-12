@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cati Forms — Criar Formulário</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Cati Forms</h1>
+    <nav><a href="/dashboard.html">← Voltar</a></nav>
+  </header>
+  <div class="container">
+    <div class="card">
+      <h2>Novo Formulário</h2>
+      <label for="title">Título *</label>
+      <input type="text" id="title" required />
+
+      <label for="description">Descrição</label>
+      <textarea id="description" rows="2"></textarea>
+
+      <label>
+        <input type="checkbox" id="requireEmail" style="width:auto; margin-right:.5rem;" />
+        Solicitar e-mail do respondente
+      </label>
+
+      <h3 style="margin-top:2rem;">Perguntas *</h3>
+      <div id="questionsContainer"></div>
+
+      <div class="actions">
+        <button type="button" id="addTextBtn" class="btn-secondary">+ Discursiva</button>
+        <button type="button" id="addMultipleBtn" class="btn-secondary">+ Múltipla Escolha</button>
+        <button type="button" id="addSingleBtn" class="btn-secondary">+ Escolha Única c/ Justificativa</button>
+      </div>
+
+      <hr style="margin:2rem 0;" />
+
+      <button type="button" id="createBtn" style="width:100%;">Criar Formulário</button>
+      <p id="message" class="error"></p>
+    </div>
+  </div>
+  <script src="/config.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/create.js"></script>
+</body>
+</html>

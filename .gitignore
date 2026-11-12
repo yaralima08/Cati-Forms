@@ -1,0 +1,18 @@
+# Dependências (o npm install recria)
+node_modules/
+
+# Banco de dados (criado automaticamente)
+data/
+*.db
+
+# Segredos e variáveis de ambiente
+.env
+.env.local
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
