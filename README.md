@@ -1,7 +1,4 @@
-Aqui está o seu `README.md` completo, unindo a estrutura criativa e profissional com as instruções de acesso, testes e detalhes do projeto. Ele está pronto para ser copiado e colado no GitHub.
 
-```markdown
-<div align="center">
 
 # Cati Forms
 
