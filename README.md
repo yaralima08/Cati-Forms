@@ -145,5 +145,3 @@ cati-forms/
 ---
 Desenvolvido para o Banco de Talentos CATI Jr. 2026.
 ```
-
-Pode copiar o bloco todo de uma vez e colar no GitHub. Ele vai renderizar perfeitamente, com todos os títulos, listas, blocos de código e caixas de seleção formatados corretamente.
