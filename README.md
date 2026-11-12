@@ -1,146 +1,169 @@
+Aqui está o seu `README.md` completo, unindo a estrutura criativa e profissional com as instruções de acesso, testes e detalhes do projeto. Ele está pronto para ser copiado e colado no GitHub.
+
+```markdown
+<div align="center">
+
 # Cati Forms
 
-Plataforma de criação, compartilhamento e análise de formulários para o Banco de Talentos 2026 da CATI Jr.
+**Plataforma de formulários dinâmicos para o Banco de Talentos 2026**
 
-O Cati Forms foi desenvolvido para ser uma ferramenta interna de alta performance, com interface moderna (Dark Mode), foco na experiência do usuário e uma API preparada para integrações futuras.
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Licença](https://img.shields.io/badge/Licen%C3%A7a-ISC-blue?style=for-the-badge)]()
 
----
-
-## O Desafio (O que foi pedido)
-
-Segundo o documento de requisitos do Banco de Talentos, a CATI Jr. precisava de uma plataforma web para:
-
-1. Criar formulários dinâmicos (Discursiva, Múltipla Escolha e Escolha Única com Justificativa).
-2. Compartilhar links públicos para pessoas responderem sem necessidade de cadastro.
-3. Garantir que todas as perguntas fossem obrigatórias e validadas no servidor (anti-fraude).
-4. Armazenar as respostas de forma segura e independente.
-5. Exportar os dados coletados em CSV (para o Excel) e PDF (para relatórios).
-6. Ter uma interface simples, responsiva e que não exigisse treinamento prévio.
+</div>
 
 ---
 
-## O que foi construído (A Solução)
+## Sobre o Projeto
 
-Entregamos um sistema completo, com backend e frontend separados, seguro e modular.
+O **Cati Forms** nasceu da necessidade da CATI Jr. em centralizar a coleta de dados do seu Banco de Talentos. Mais do que um clone do Google Forms, o sistema foi projetado com uma arquitetura modular, interface moderna e foco na integridade dos dados.
 
-### Design e Usabilidade (RNF01, RNF02)
-
-*   **Dark Mode Premium:** Fugimos do visual genérico de formulários brancos. Usamos uma paleta escura inspirada nas melhores ferramentas do mercado (Linear, Vercel, GitHub) com os detalhes nas cores da CATI Jr. (Azul e Magenta).
-*   **Zero Curva de Aprendizado:** O criador clica em "+ Discursiva", preenche o campo e o sistema já foca automaticamente na próxima etapa.
-*   **Responsivo:** O layout se adapta a telas de celulares e computadores através de media queries no CSS, garantindo botões acessíveis, fontes legíveis e quebra correta de texto.
-
-### Segurança e Integridade (RNs e RNF05)
-
-*   **Senhas Seguras:** Hash de senhas usando `bcrypt`.
-*   **Sessões à Prova de Falhas:** Autenticação via `JWT` (JSON Web Token) com expiração.
-*   **Blindagem do Formulário (RN07):** Formulários são imutáveis após a criação. O backend bloqueia qualquer tentativa de edição ou exclusão (`PUT`, `PATCH`, `DELETE`).
-*   **Validação Dupla:** As regras de negócio (perguntas obrigatórias, justificativa obrigatória) são validadas no frontend para a experiência do usuário, e também no backend (para impedir burlas via Postman ou scripts).
-
-### Arquitetura Técnica (RNF07, RNF08)
-
-*   **Backend:** Node.js + Express.
-*   **Banco de Dados:** SQLite (persistente em arquivo), modelado com entidades independentes (`forms`, `questions`, `responses`, `answers`) e integridade referencial (`ON DELETE CASCADE`).
-*   **Frontend:** HTML5, CSS3 puro (sem frameworks pesados) e JavaScript Vanilla (ES6+).
-*   **Exportação Nativa:** Geração de CSV com separador `;` e BOM UTF-8 (abre perfeitamente no Excel brasileiro) e PDF gerado dinamicamente com `PDFKit`.
+> **Objetivo:** Oferecer uma ferramenta interna simples, segura e visualmente agradável para criação de formulários, compartilhamento de links públicos e análise de respostas.
 
 ---
 
-## Como rodar na sua máquina
+## Principais Funcionalidades
 
-### Pré-requisitos
-
-*   Node.js (v18 ou superior) instalado.
-*   NPM instalado.
-
-### Passo a passo
-
-1. Clone este repositório.
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-3. Inicie o servidor:
-   ```bash
-   npm start
-   ```
-4. Acesse no navegador:
-   ```text
-   http://localhost:3000
-   ```
-
-O banco de dados (`cati-forms.db`) será criado automaticamente na pasta `data/` na primeira execução.
+*   **Criação Flexível:** Suporte a perguntas discursivas, múltipla escolha (ilimitada) e escolha única com justificativa obrigatória.
+*   **Compartilhamento Descomplicado:** Geração de links públicos únicos. Qualquer pessoa pode responder sem precisar criar conta.
+*   **Segurança em Primeiro Lugar:** Senhas com hash (`bcrypt`), autenticação via `JWT` e validação anti-fraude no lado do servidor.
+*   **Imutabilidade (RN07):** Após a criação, o formulário não pode ser editado ou excluído, garantindo a integridade histórica dos dados.
+*   **Exportação Nativa:** Respostas disponíveis em **CSV** (formatado para Excel brasileiro) e **PDF** (gerado dinamicamente).
+*   **Design Responsivo:** Interface Dark Mode adaptada para desktop e dispositivos móveis.
 
 ---
 
-## Como testar a Responsividade (RNF02)
+## Stack Tecnológica
 
-A página de resposta (`form.html`) foi desenvolvida com design responsivo, atendendo ao requisito RNF02.
-
-Para testar no seu computador (sem precisar de um celular físico):
-
-1. Abra o formulário público no navegador.
-2. Pressione `F12` para abrir as ferramentas de desenvolvedor.
-3. Ative o modo de dispositivo móvel (`Ctrl + Shift + M` no Chrome/Firefox).
-4. Selecione um modelo de celular (ex: iPhone 12) e verifique o layout.
-
-O CSS adapta os botões, tamanhos de fonte (16px nos inputs para evitar zoom no iOS) e margens para telas menores.
+| Camada | Tecnologia |
+| :--- | :--- |
+| **Backend** | Node.js, Express, JWT, Bcrypt |
+| **Banco de Dados** | SQLite (persistente em arquivo) |
+| **Frontend** | HTML5, CSS3, JavaScript (Vanilla) |
+| **Exportação** | PDFKit, CSV com BOM UTF-8 |
 
 ---
 
-## Como testar o link público (Compartilhamento)
+## Como Rodar o Projeto
 
-Como o sistema foi projetado para rodar localmente, o link gerado pelo formulário será `http://localhost:3000/...`. Para compartilhar com alguém fora da sua máquina (ou testar no celular usando dados móveis), utilize um túnel.
+### Requisitos
+*   Node.js (v18+)
+*   NPM
 
-### Opção rápida: Cloudflare Tunnel
-
-Com o projeto rodando (`npm start`), abra um segundo terminal e execute:
+### Instalação e Execução
 
 ```bash
+# 1. Clone o repositório
+git clone https://github.com/yaralima08/Cati-Forms.git
+
+# 2. Acesse a pasta
+cd Cati-Forms
+
+# 3. Instale as dependências
+npm install
+
+# 4. Inicie o servidor
+npm start
+```
+
+Acesse em seu navegador: `http://localhost:3000`
+
+> O banco de dados (`cati-forms.db`) será criado automaticamente na pasta `data/`.
+
+---
+
+## Acesso Rápido (Demonstração)
+
+Para facilitar a avaliação, o sistema está temporariamente disponível em um link público gerado pelo Cloudflare Tunnel.
+
+**Link de Acesso:**
+`https://victory-screenshot-warcraft-alert.trycloudflare.com`
+
+**Instruções para Teste:**
+1. Abra o link acima no seu navegador (computador ou celular).
+2. Crie uma conta, faça login e crie um formulário de teste.
+3. Copie o link público gerado pelo sistema e abra em outra aba para simular um respondente externo.
+
+> **Aviso Importante:** Este link é um túnel temporário e só permanecerá online enquanto o servidor local e o túnel estiverem rodando na máquina do desenvolvedor. Para executar o projeto de forma definitiva, siga as instruções da seção "Como rodar o projeto".
+
+---
+
+## Testando Recursos Específicos
+
+### Responsividade (RNF02)
+A página de resposta é adaptável a celulares. Para testar no navegador:
+1. Abra um formulário público.
+2. Pressione `F12` e ative o modo de dispositivo móvel (`Ctrl + Shift + M`).
+3. Verifique a usabilidade dos inputs e botões em telas pequenas.
+
+### Compartilhamento Público
+Como o sistema roda localmente por padrão, para compartilhar o link com pessoas externas utilize um túnel:
+
+```bash
+# Em um terminal separado (com o projeto rodando)
 npx cloudflared tunnel --url http://localhost:3000
 ```
 
-O terminal gerará um link público (ex: `https://...trycloudflare.com`). Abra esse link no navegador para criar o formulário, e o link de compartilhamento gerado pelo sistema usará automaticamente essa URL pública. A banca poderá acessar esse link de qualquer dispositivo.
+O terminal gerará uma URL pública (ex: `https://...trycloudflare.com`). Crie o formulário a partir desse link para que o compartilhamento funcione externamente.
 
 ---
 
-## Organização do Projeto
+## Estrutura de Pastas
 
 ```text
 cati-forms/
 ├── data/                 # Banco de dados SQLite (gerado automaticamente)
 ├── public/               # Frontend
-│   ├── css/style.css     # Design System (Dark Mode)
-│   ├── js/               # Scripts da interface (fetch API)
-│   ├── index.html        # Tela de Login e Cadastro
-│   ├── dashboard.html    # Painel com a lista de formulários
-│   ├── create.html       # Construtor de formulários
-│   ├── form.html         # Página pública (onde o candidato responde)
-│   └── responses.html    # Painel de respostas e exportação
-├── server.js             # API REST + Banco de Dados
-├── package.json          # Dependências
-└── README.md             # Documentação
+│   ├── css/              # Estilos (Dark Mode)
+│   ├── js/               # Lógica das páginas
+│   └── *.html            # Telas do sistema
+├── server.js             # API REST + Regras de Negócio
+└── package.json          # Dependências
 ```
 
 ---
 
-## Checklist do Escopo Concluído
+## Requisitos Atendidos
 
-- [x] **RF01-RF02:** Cadastro, Login e Logout (username/e-mail único).
-- [x] **RF03-RF07:** Criação com os 3 tipos de perguntas e flag de e-mail opcional.
-- [x] **RF08-RF09:** Geração de link público para resposta externa.
-- [x] **RF10-RF11:** Validação de obrigatoriedade total e de justificativa.
-- [x] **RF12-RF13:** Armazenamento independente e relacionado.
-- [x] **RF14:** Visualização de respostas por qualquer usuário logado.
-- [x] **RF15-RF16:** Exportação impecável em CSV e PDF.
-- [x] **RN01-RN11:** Todas as regras de negócio implementadas.
-- [x] **RNF01-RNF08:** Design, responsividade, segurança e arquitetura.
+<details>
+<summary><strong>Clique para expandir o checklist completo</strong></summary>
+
+### Funcionais
+- [x] RF01-RF02: Cadastro, Login e Logout.
+- [x] RF03-RF07: Criação de formulários e tipos de perguntas.
+- [x] RF08-RF09: Link público para resposta externa.
+- [x] RF10-RF11: Validação de obrigatoriedade e justificativa.
+- [x] RF12-RF13: Armazenamento independente e relacionado.
+- [x] RF14: Visualização de respostas.
+- [x] RF15-RF16: Exportação em CSV e PDF.
+
+### Regras de Negócio
+- [x] RN01-RN03: Usuário único e criação autenticada.
+- [x] RN04-RN06: Perguntas obrigatórias, justificativa e múltipla escolha ilimitada.
+- [x] RN07: Formulários imutáveis (bloqueio no backend).
+- [x] RN08-RN11: E-mail opcional, respondentes externos e exportação.
+
+### Não Funcionais
+- [x] RNF01-RNF02: Usabilidade e responsividade.
+- [x] RNF03-RNF04: Desempenho e acesso via navegador.
+- [x] RNF05: Senhas criptografadas (hash).
+- [x] RNF06: Sem níveis de acesso nesta versão.
+- [x] RNF07-RNF08: Modularidade e modelagem de banco.
+
+</details>
 
 ---
 
-## Decisões de Projeto e Evoluções Futuras
+## Decisões de Projeto
 
-*   **Sem botão de editar/excluir?** Foi uma decisão intencional para cumprir a RN07. O banco guarda o histórico imutável. Para uma v2.0, planejamos um sistema de arquivamento (soft delete).
-*   **Próximos passos:** Integração direta com o módulo de Controle de Pessoas da CATI Jr., upload de imagens de capa, perfis de acesso e novos tipos de perguntas (escala, upload de arquivo).
+*   **Sem botão de editar/excluir?** Decisão intencional para cumprir a RN07. O histórico de dados é preservado. Para versões futuras, planeja-se um sistema de arquivamento.
+*   **Evoluções futuras:** Integração com o módulo de Controle de Pessoas, upload de imagens de capa, perfis de acesso e novos tipos de perguntas.
 
 ---
-Desenvolvido para o Banco de Talentos CATI Jr. 2026.
+
+<p align="center">
+  <i>Desenvolvido para o Banco de Talentos CATI Jr. 2026.</i>
+</p>
+```
